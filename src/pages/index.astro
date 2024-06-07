@@ -2,6 +2,8 @@
 import Stats from '~/components/Stats.astro';
 import Layout from '../layouts/Layout.astro';
 import LogoCloud from '~/components/LogoCloud.astro';
+import HeaderSmall from '~/components/HeaderSmall.astro';
+import CallToAction from '~/components/CallToAction.astro';
 import { Icon } from 'astro-icon';
 import Hero from '~/components/Hero.astro';
 ---
@@ -13,5 +15,16 @@ import Hero from '~/components/Hero.astro';
   <LogoCloud/>
 
   <Stats/>
+
+  <HeaderSmall>
+    <Fragment slot="header">
+      Email reigns, yet 74% say it’s time for an internal comms upgrade
+    </Fragment>
+    <Fragment slot="subtitle">
+      Get employees to open, click, and interact more with your emails as soon as you hit their inbox. ContactMonkey’s drag-and-drop builder streamlines your employee communications, from draft to launch, and provides accurate analytics—so you can refine your strategy.
+    </Fragment>
+  </HeaderSmall>
+
+  <CallToAction/>
 
 </Layout>

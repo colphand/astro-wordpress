@@ -6,6 +6,10 @@ h1, h2 {
     @apply font-display;
 }
 
+.btn {
+    @apply rounded-xl border-[2px] border-black bg-cm-400 text-black normal-case shadow-hard hover:bg-cm-400 hover:shadow-none transition-all;
+  }
+
 /* Scroll bar */
 /* ::-webkit-scrollbar {
     width: 12px;
