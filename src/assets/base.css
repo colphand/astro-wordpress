@@ -2,16 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-h2 {
-    @apply text-3xl font-extrabold;
-}
-
-p {
-    @apply mt-2;
+h1 {
+    @apply font-display;
 }
 
 /* Scroll bar */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 12px;
 }
 ::-webkit-scrollbar-thumb {
@@ -22,4 +18,126 @@ p {
 }
 ::-webkit-scrollbar-track {
     background-color: #1f2937;
-}
+} */
+
+@layer base {
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-LightItalic.woff') format('woff');
+        font-weight: 300;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Medium.woff') format('woff');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-SemiboldItalic.woff') format('woff');
+        font-weight: 600;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-BoldItalic.woff') format('woff');
+        font-weight: bold;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Italic.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Black.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-BlackItalic.woff') format('woff');
+        font-weight: 900;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Thin.woff') format('woff');
+        font-weight: 100;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-ThinItalic.woff') format('woff');
+        font-weight: 100;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Black.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Semibold.woff') format('woff');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-MediumItalic.woff') format('woff');
+        font-weight: 500;
+        font-style: italic;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Degular Display';
+        src: url('assets/fonts/DegularDisplay-Light.woff') format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+  }

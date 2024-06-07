@@ -3,14 +3,10 @@ export interface Props {
     post: {};
 }
 
-let postExcerpt = (post) => {
-    let content = post.content.rendered.split('.');
-    return `${content[0]}. ${content[1]}...`;
-};
 const { post } = Astro.props;
 ---
 
-<div class="card w-full bg-base-100 shadow-xl rounded-t-md md:w-96">
+<!-- <div class="card w-full bg-base-100 shadow-xl rounded-t-md md:w-96">
     <figure class="bg-white">
         <img
             src={post._embedded['wp:featuredmedia']['0'].source_url}
@@ -18,7 +14,7 @@ const { post } = Astro.props;
         />
     </figure>
     <div class="card-body bg-gray-700 rounded-b-md">
-        <a href={`/dinos/${post.slug}/`}>
+        <a href={`/posts/${post.slug}/`}>
             <h2
                 class="card-title hover:underline hover:decoration-wavy decoration-red-600 decoration-4"
                 set:html="post.title.rendered"
@@ -26,9 +22,44 @@ const { post } = Astro.props;
         </a>
         <p set:html={postExcerpt(post)} />
         <div class="card-actions justify-end">
-            <a href={`/dinos/${post.slug}/`}>
+            <a href={`/posts/${post.slug}/`}>
                 <button class="btn btn-primary"> Learn more</button>
             </a>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<article class="flex flex-col items-start justify-between prose">
+    <div class="relative w-full">
+      <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+      <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+    </div>
+    <div class="max-w-xl">
+      <div class="mt-8 flex items-center gap-x-4 text-xs">
+        <time datetime="2020-03-16" set:html="post.date" class="text-gray-500"></time>
+        <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+      </div>
+      <div class="group relative">
+        <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600" set:html="post.title.rendered">
+          <a href={`/dinos/${post.slug}/`}>
+            <span class="absolute inset-0"></span>
+          </a>
+        </h3>
+        <div class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+        <p set:html="post.excerpt.rendered" ></p>
+    </div>
+      </div>
+      <div class="relative mt-8 flex items-center gap-x-4">
+        <img src={`${post.yoast_head_json.og_image.url}`} alt="" class="h-10 w-10 rounded-full bg-gray-100">
+        <div class="text-sm leading-6">
+          <p class="font-semibold text-gray-900">
+            <a href="#">
+              <span class="absolute inset-0" set:html="post.yoast_head_json.author"></span>
+            </a>
+          </p>
+          <p class="text-gray-600" set:html="post.yoast_head_json.twitter_misc" ></p>
+        </div>
+      </div>
+    </div>
+  </article>
