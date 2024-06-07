@@ -1,14 +1,14 @@
 ---
+import { getPosts } from '../../../lib/api';
 const { slug } = Astro.params;
+import Layout from '~/layouts/Layout.astro';
+
 let res = await fetch(`https://www.contactmonkey.com/wp-json/wp/v2/posts/?slug=${slug}&_embed`);
 let [post] = await res.json();
 
-import Layout from '~/layouts/Layout.astro';
 
 export async function getStaticPaths() {
-    let data = await fetch("https://www.contactmonkey.com/wp-json/wp/v2/posts/");
-  let posts = await data.json();
-
+    let posts = await getPosts();
     return posts.map((post) => {
         return {
             params: { slug: post.slug },
