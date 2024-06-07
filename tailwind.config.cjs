@@ -2,10 +2,25 @@
 module.exports = {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     theme: {
-        fontFamily: {
-            'display': ['Degular Display', 'ui-sans-serif', 'system-ui']
+        extend: {
+            fontFamily: {
+                'display': ['Degular Display', 'ui-sans-serif', 'system-ui']
+            },
+            colors: {
+                'cm': {
+                   50: '#ECFDF3',
+                  100: '#D1FADF',
+                  200: '#A6F4C5',
+                  300: '#6DE8A6',
+                  400: '#45D88E',
+                  500: '#0FBA69',
+                  600: '#049755',
+                  700: '#037947',
+                  800: '#056039',
+                  900: '#054F31',
+                },
+            },
         },
-        extend: {},
     },
     plugins: [
         // require('daisyui'),

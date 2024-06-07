@@ -2,49 +2,85 @@
 import { Icon } from 'astro-icon';
 ---
 
-<footer class="footer p-10 bg-neutral text-neutral-content mt-auto">
-    <div>
-        <p>
-            <Icon name="bi:wordpress" class="h-10 w-10 mb-1" />
-            Made for <a
-                class="underline text-white hover:decoration-transparent"
-                target="_blank"
-                href="https://kolkata.wordcamp.org/2022/"
-                >WordCamp Kolkata 2022</a
-            >
-            with by <a
-                href="https://and249.codes/"
-                target="_blank"
-                class="underline decoration-[#26a69a] font-extrabold text-white decoration-4"
-                >and249</a
-            >
-        </p>
-    </div>
-    <div>
-        <span class="footer-title">Social</span>
-        <div class="grid grid-flow-col gap-4 content-center">
-            <a
-                href="https://www.linkedin.com/in/anindo-neel-dutta-2a8050199/"
-                target="_blank"
-            >
-                <Icon
-                    name="mdi:linkedin"
-                    class="h-7 w-7 hover:text-[#0A66C2]"
-                />
-            </a>
-            <a href="https://www.instagram.com/and_249/" target="_blank">
-                <Icon
-                    name="ant-design:instagram-filled"
-                    class="h-7 w-7 hover:text-[#E1306C]"
-                />
-            </a>
-
-            <a
-                href="https://github.com/leen-neel/astro-wordpress"
-                target="_blank"
-            >
-                <Icon name="mdi:github" class="h-7 w-7 hover:text-[#fff]" />
-            </a>
+<footer class="bg-white" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
+      <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+        <img class="h-7" src="/src/assets/logo.svg" alt="Company name">
+        <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 class="text-sm font-semibold leading-6 text-gray-900">Solutions</h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Marketing</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Analytics</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Commerce</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Insights</a>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-10 md:mt-0">
+              <h3 class="text-sm font-semibold leading-6 text-gray-900">Support</h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Documentation</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Guides</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">API Status</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 class="text-sm font-semibold leading-6 text-gray-900">Company</h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">About</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Jobs</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Press</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Partners</a>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-10 md:mt-0">
+              <h3 class="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Claim</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy</a>
+                </li>
+                <li>
+                  <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Terms</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</footer>
+  </footer>

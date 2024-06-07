@@ -1,0 +1,35 @@
+---
+import HeaderSmall from "./HeaderSmall.astro"
+
+const stats = [
+  { id: 1, name: 'Lift in open rates after adoption', value: '33%' },
+  { id: 2, name: 'Boost in employee engagement', value: '70%' },
+  { id: 3, name: 'Days saved annually', value: '25' },
+  { id: 4, name: 'Read time for newsletters', value: '9 seconds' },
+]
+---
+
+<div class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:max-w-none">
+        <HeaderSmall>
+          <Fragment slot="header">
+        The ContactMonkey effect
+      </Fragment>
+      <Fragment slot="subtitle">
+        It’s time for an internal comms upgrade!
+      </Fragment>
+        </HeaderSmall>
+        <dl class="grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+            {
+                stats.map((data) => 
+                <div class="flex flex-col bg-gray-400/5 p-8">
+                    <dt class="text-sm font-semibold leading-6 text-gray-600">{ data.name }</dt>
+                    <dd class="font-display order-first text-5xl font-semibold text-gray-900">{ data.value }</dd>
+                </div>
+            )
+            }
+        </dl>
+      </div>
+    </div>
+</div>
