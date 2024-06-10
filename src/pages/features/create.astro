@@ -1,7 +1,41 @@
 ---
 import PageHeader from "~/components/PageHeader.astro";
+import LogoCloud from "~/components/LogoCloud.astro";
+import FeatureCard from "~/components/FeatureCard.astro";
+
 import Layout from "~/layouts/Layout.astro";
 ---
 <Layout title="ContactMonkey">
-<PageHeader></PageHeader>
+    <PageHeader/>
+    <LogoCloud/>
+    <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-4xl lg:text-center">
+            <!-- <h3 class="text-base font-semibold leading-7 text-cmky-600">Deploy faster</h> -->
+            <h2 class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">Empowering you to craft the most exciting emails
+            </h2>
+            <!-- <p class="mt-6 text-lg leading-8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.</p> -->
+          </div>
+          <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+            <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+              <FeatureCard>
+                <iconify-icon slot="icon" icon="solar:bolt-bold-duotone"></iconify-icon>
+                <Fragment slot="feature">Build content fast</Fragment>
+                <Fragment slot="description">Curate newsletters your employees will love using our drag-and-drop template builder.</Fragment>
+              </FeatureCard>
+              <FeatureCard>
+                <iconify-icon slot="icon" icon="solar:cup-star-bold-duotone"></iconify-icon>
+                <Fragment slot="feature">Master internal emails</Fragment>
+                <Fragment slot="description">Easily create and send emails without any coding, technical, or design expertise needed.</Fragment>
+              </FeatureCard>
+              <FeatureCard>
+                <iconify-icon slot="icon" icon="solar:palette-bold-duotone"></iconify-icon>
+                <Fragment slot="feature">Stay on brand</Fragment>
+                <Fragment slot="description">Maintain your distinct brand identity by using your company’s logo, colours, and fonts.</Fragment>
+              </FeatureCard>
+            </dl>
+          </div>
+        </div>
+      </div>
+      
 </Layout>
