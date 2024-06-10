@@ -32,14 +32,11 @@ const { title, author, excerpt, content, image, meta } = Astro.props;
 ---
 
 <Layout title={title}>
-
     <div class="bg-white px-6 py-32 lg:px-8">
-
         <figure class="bg-white flex justify-center rounded-sm">
             <!-- <img src={image} alt={title} /> -->
             <img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.large.source_url} />
         </figure>
-
         <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
           <!-- <p class="text-base font-semibold leading-7 text-cm-600">Introducing</p> -->
           <h1 class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">{title}</h1>
@@ -51,5 +48,4 @@ const { title, author, excerpt, content, image, meta } = Astro.props;
           </div>
         </div>
       </div>
-
 </Layout>

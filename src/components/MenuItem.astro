@@ -1,16 +1,18 @@
 ---
 // import Icon from "astro-icon";
 const icon = Astro.props;
+const to = Astro.props;
 ---
-
 <div class="flex gap-2 p-2 pr-8 items-center rounded-lg hover:bg-stone-100 cursor-pointer">
-        <div class="w-12 h-12 rounded-md bg-stone-100 flex items-center justify-center"><iconify-icon icon={icon} slot="icon" class="text-3xl flex iconify text-[#313B77]"></div>
-            <div>
-                <h4 class="text-lg font-semibold tracking-wide leading-tight">
-                    <slot name="title">
-                </h4>
-                <p class="text-slate-600">
-                    <slot name="subtitle"></slot>
-                </p>
-            </div>
+        <div class="w-12 h-12 text-cm-500 text-3xl shrink-0 rounded-md bg-stone-100 flex items-center justify-center">
+            <slot name="icon">
+        </div>
+        <div>
+            <h4 class="text-lg font-semibold tracking-wide leading-tight">
+                <slot name="title">
+            </h4>
+            <p class="text-slate-600">
+                <slot name="subtitle"></slot>
+            </p>
+        </div>
 </div>
