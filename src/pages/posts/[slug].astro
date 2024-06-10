@@ -38,7 +38,7 @@ const { title, author, excerpt, content, image, meta } = Astro.props;
             <img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.large.source_url} />
         </figure>
         <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-          <!-- <p class="text-base font-semibold leading-7 text-cm-600">Introducing</p> -->
+          <!-- <p class="text-base font-semibold leading-7 text-cmky-600">Introducing</p> -->
           <h1 class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">{title}</h1>
           <p class="mt-6 text-xl leading-8">{excerpt}</p>
           <div class="mt-10 max-w-2xl">

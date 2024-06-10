@@ -7,7 +7,7 @@ module.exports = {
                 'display': ['Degular Display', 'ui-sans-serif', 'system-ui']
             },
             colors: {
-                'cm': {
+                'cmky': {
                    50: '#ECFDF3',
                   100: '#D1FADF',
                   200: '#A6F4C5',

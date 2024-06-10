@@ -7,7 +7,7 @@ h1, h2 {
 }
 
 .btn {
-    @apply rounded-xl border-[2px] border-black bg-cm-400 text-black normal-case shadow-hard hover:bg-cm-400 hover:shadow-none transition-all;
+    @apply rounded-xl border-[2px] border-black bg-cmky-400 text-black normal-case shadow-hard hover:bg-cmky-400 hover:shadow-none transition-all;
   }
 
 /* Scroll bar */
