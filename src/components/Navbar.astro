@@ -1,3 +1,7 @@
+---
+import MenuItem from "./MenuItem.astro";
+---
+
 <header class="absolute inset-x-0 top-0 z-50">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
@@ -16,7 +20,22 @@
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
         <a href="/" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
-        <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a> -->
+        <div class="dropdown dropdown-hover">
+          <div tabindex="0" role="button" class="text-sm font-semibold leading-6 mb-3 text-gray-900">Features</div>
+          <ul tabindex="0" class="ring-1 ring-stone-200 dropdown-content z-[1] menu p-4 bg-base-100 rounded-box w-96">
+            <MenuItem>
+              <Fragment slot="title">Create</Fragment>
+              <Fragment slot="subtitle">Craft awesome emails with our template builder</Fragment>
+            </MenuItem>
+            <MenuItem>
+              <Fragment slot="title">Create</Fragment>
+              <Fragment slot="subtitle">Craft awesome emails with our template builder</Fragment>
+            </MenuItem><MenuItem>
+              <Fragment slot="title">Create</Fragment>
+              <Fragment slot="subtitle">Craft awesome emails with our template builder</Fragment>
+            </MenuItem>
+          </ul>
+        </div>
         <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a> -->
         <a href="/blog" class="text-sm font-semibold leading-6 text-gray-900">Blog</a>
       </div>
