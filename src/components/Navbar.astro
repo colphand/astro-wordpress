@@ -24,11 +24,13 @@ import MenuItem from "./MenuItem.astro";
           <div tabindex="0" role="button" class="text-sm font-semibold leading-6 mb-3 text-gray-900">Features</div>
           <ul tabindex="0" class="ring-1 ring-stone-200 dropdown-content z-[1] menu p-4 bg-base-100 rounded-box w-[490px]">
             
+            <a href="/features/create">
             <MenuItem>
               <iconify-icon slot="icon" icon="solar:palette-bold-duotone"></iconify-icon>
               <Fragment slot="title">Create</Fragment>
               <Fragment slot="subtitle">Craft awesome emails with our template builder</Fragment>
             </MenuItem>
+            </a>
             <MenuItem> 
               <iconify-icon slot="icon" icon="solar:plain-bold-duotone"></iconify-icon>
               <Fragment slot="title">Send</Fragment>
