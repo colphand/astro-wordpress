@@ -1,21 +1,36 @@
 ---
 export interface Props {
-    post: {};
+    post: {
+      
+    };
 }
 
 
 const { post } = Astro.props;
+
+const isoString = post.date;
+const date = new Date(isoString).toDateString();
+
 ---
 
-
-<article class="flex flex-col items-start justify-between">
+<article class="flex flex-col items-start">
     <div class="relative w-full">
-      <img src={post._embedded['wp:featuredmedia']['0'].source_url} alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
-      <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+      { post._embedded ? (
+        <>
+        <img src={post._embedded['wp:featuredmedia']['0'].source_url} alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+        <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+        </>
+      ) : (
+      null
+      )
+
+      }
+      
+      
     </div>
     <div class="max-w-xl">
       <div class="mt-8 flex items-center gap-x-4 text-xs">
-        <time datetime="2020-03-16" set:html="post.date" class="text-gray-500"></time>
+        <time datetime="2020-03-16" set:html={date} class="text-gray-500"></time>
         <a href="#" set:html="post.categories" class="no-underline relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"></a>
       </div>
       <div class="group relative">
@@ -24,9 +39,17 @@ const { post } = Astro.props;
             <span class="absolute inset-0"></span>
           </a>
         </h3>
+        { post.excerpt ? (
+        <>
         <div class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
           <p set:html="post.excerpt.rendered" ></p>
-        </div>
+      </div>
+        </>
+      ) : (
+      <p>No excerpt</p>
+      )
+
+      }
       </div>
       <div class="relative mt-8 flex items-center gap-x-4">
         <div class="text-sm leading-6">
