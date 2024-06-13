@@ -29,10 +29,9 @@ const primaryMenu = menus.nodes[0];
         />
     </head>
     <body>
-        <Navbar />
-
+        <!-- <Navbar /> -->
+        <SiteNav menu={primaryMenu} generalSettings={generalSettings} />
         <main class="min-h-screen flex flex-col">
-            <SiteNav menu={primaryMenu} generalSettings={generalSettings} />
             <slot />
         </main>
 

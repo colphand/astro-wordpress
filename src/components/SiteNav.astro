@@ -1,98 +1,101 @@
 ---
 const { menu, generalSettings } = Astro.props;
+import FeaturesMenu from "./FeaturesMenu.astro";
+import ResourcesMenu from "./ResourcesMenu.astro";
+import logo from "../assets/logo.svg";
+// https://codepen.io/JosephAllen/pen/yLJZdvO for the mobile menu
+// function toggleMenu() {
+// 	document.getElementById("mobileMenu").classList.toggle("hidden");
+// }
 ---
 
-<div><a href="/" class="site-name">{generalSettings.title}</a></div>
-<div class="hamburger">&#9776;</div>
-<nav>
-  <ul>
-    {
-      menu.menuItems.nodes.map((menuItem) => {
-        return (
-          <li>
-            <a href={menuItem.uri || "/"}>{menuItem.label}</a>
-          </li>
-        );
-      })
-    }
-  </ul>
-</nav>
+<header class="inset-x-0 top-0 z-50 fixed">
+  <nav
+    class="flex items-center justify-between p-6 lg:px-8"
+    aria-label="Global"
+  >
+    <div class="flex lg:flex-1">
+      <a href="/" class="-m-1.5 p-1.5">
+        <span class="sr-only">ContactMonkey</span>
+        <img class="h-8 w-auto" src={logo} alt="" />
+      </a>
+    </div>
+    <div class="flex lg:hidden">
+      <button
+        type="button"
+        onclick="toggleMenu()"
+        id="main-menu"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+      </button>
+    </div>
 
-<script>
-  const hamburger = document.querySelector(".hamburger");
-  const nav = document.querySelector("nav");
+    <ul class="hidden lg:flex lg:gap-x-12 items-baseline">
+      {
+        menu.menuItems.nodes.map((menuItem) => {
+          return (
+            <li>
+              <a
+                href={menuItem.uri || "/"}
+                class="text-sm font-semibold leading-6 text-gray-900"
+              >
+                {menuItem.label}
+              </a>
+            </li>
+          );
+        })
+      }
 
-  hamburger.addEventListener("click", toggleNav);
-
-  function toggleNav() {
-    nav.classList.toggle("show-nav");
-    console.log("running");
-  }
-</script>
-
-<style>
-  header {
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  /* hamburger icon styling */
-  .hamburger {
-    display: none;
-    font-size: 2rem;
-    color: #000;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  /* nav menu styling */
-  nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  nav ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  nav li {
-    margin-left: 20px;
-  }
-  nav a {
-    text-decoration: none;
-  }
-  /* media query for mobile */
-  @media (max-width: 767px) {
-    /* hamburger icon shows up */
-    .hamburger {
-      display: block;
-    }
-    /* nav is hidden by default */
-    nav {
-      display: none;
-      flex-direction: column;
-      justify-content: flex-start;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #fff;
-    }
-    /* nav links are stacked and centered */
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-    /* nav link styling */
-    nav li {
-      margin: 10px 0;
-    }
-    /* nav links show up when hamburger icon is clicked */
-    nav.show-nav {
-      display: flex;
-    }
-  }
-</style>
+      <!-- <div class="dropdown dropdown-hover">
+        <div
+          tabindex="0"
+          role="button"
+          class="text-sm font-semibold leading-6 mb-3 text-gray-900"
+        >
+          Features
+        </div>
+        <FeaturesMenu />
+      </div>
+      <a href="/pricing" class="text-sm font-semibold leading-6 text-gray-900"
+        >Pricing</a
+      >
+      <a href="/customers" class="text-sm font-semibold leading-6 text-gray-900"
+        >Customers</a
+      >
+      <a
+        href="/contact"
+        class="rounded-full px-3 py-1 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20 font-semibold text-cmky-600"
+        >Book a demo</a
+      >
+      <div class="dropdown dropdown-hover">
+        <div
+          tabindex="0"
+          role="button"
+          class="text-sm font-semibold leading-6 mb-3 text-gray-900"
+        >
+          Resources
+        </div>
+        <ResourcesMenu />
+      </div> -->
+    </ul>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+        >Log in <span aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </nav>
+</header>
