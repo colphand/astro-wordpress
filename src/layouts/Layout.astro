@@ -1,12 +1,18 @@
 ---
-import '~/assets/base.css';
-import Footer from '~/components/Footer.astro';
-import Navbar from '~/components/Navbar.astro';
+import "~/assets/base.css";
+import Footer from "~/components/Footer.astro";
+import Navbar from "~/components/Navbar.astro";
+import PostCard from "~/components/PostCard.astro";
+import { homePagePostsQuery, navQuery } from "lib/api2";
+const { menus, generalSettings } = await navQuery();
+import SiteNav from "~/components/SiteNav.astro";
 export interface Props {
     title: string;
 }
-
+const data = await homePagePostsQuery();
+const posts = data.posts.nodes;
 const { title } = Astro.props;
+const primaryMenu = menus.nodes[0];
 ---
 
 <!DOCTYPE html>
@@ -26,11 +32,20 @@ const { title } = Astro.props;
         <Navbar />
 
         <main class="min-h-screen flex flex-col">
+            <SiteNav menu={primaryMenu} generalSettings={generalSettings} />
             <slot />
         </main>
 
         <Footer />
+
+        <!-- <h2>Recent Posts</h2>
+        {
+            posts.map((post) => {
+                return <PostCard post={post} />;
+            })
+        } -->
     </body>
 </html>
 
-<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
+></script>
