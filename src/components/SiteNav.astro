@@ -9,7 +9,7 @@ import logo from "../assets/logo.svg";
 // }
 ---
 
-<header class="inset-x-0 top-0 z-50 fixed">
+<header class="inset-x-0 top-0 z-50 sticky">
   <nav
     class="flex items-center justify-between p-6 lg:px-8"
     aria-label="Global"
@@ -44,7 +44,7 @@ import logo from "../assets/logo.svg";
       </button>
     </div>
 
-    <ul class="hidden lg:flex lg:gap-x-12 items-baseline">
+    <!-- <ul class="hidden lg:flex lg:gap-x-12 items-baseline">
       {
         menu.menuItems.nodes.map((menuItem) => {
           return (
@@ -59,7 +59,42 @@ import logo from "../assets/logo.svg";
           );
         })
       }
-    </ul>
+    </ul> -->
+
+    <div class="hidden lg:flex lg:gap-x-12 items-baseline">
+      <div class="dropdown dropdown-hover">
+        <div
+          tabindex="0"
+          role="button"
+          class="text-sm font-semibold leading-6 mb-3 text-gray-900"
+        >
+          Features
+        </div>
+        <FeaturesMenu />
+      </div>
+      <a href="/pricing" class="text-sm font-semibold leading-6 text-gray-900"
+        >Pricing</a
+      >
+      <a href="/customers" class="text-sm font-semibold leading-6 text-gray-900"
+        >Customers</a
+      >
+      <a
+        href="/contact"
+        class="rounded-full px-3 py-1 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20 font-semibold text-cmky-600"
+        >Book a demo</a
+      >
+      <div class="dropdown dropdown-hover">
+        <div
+          tabindex="0"
+          role="button"
+          class="text-sm font-semibold leading-6 mb-3 text-gray-900"
+        >
+          Resources
+        </div>
+        <ResourcesMenu />
+      </div>
+    </div>
+
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
         >Log in <span aria-hidden="true">&rarr;</span>

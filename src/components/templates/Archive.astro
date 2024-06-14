@@ -1,12 +1,35 @@
 ---
+import Layout from "~/layouts/Layout.astro";
 import PostCard from "../PostCard.astro";
 
 const { node } = Astro.props;
----     
- <h1>{node.name} - Archive</h1>
+---
 
- {node.posts.nodes.map(post => {
-    return (
-        <PostCard post={post}></PostCard>
-    )
-})}
+<Layout title="ContactMonkey">
+    <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl text-center">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+                    {node.name} - Archive
+                </h2>
+                <p class="mt-2 text-lg leading-8 text-gray-600">
+                    Business leaders worldwide use ContactMonkey each day to
+                    streamline their internal communications and measure
+                    employee engagement. Here’s how they’ve transformed their
+                    workforce.
+                </p>
+            </div>
+            <div
+                class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+            >
+                {
+                    node.posts.nodes.map((post) => {
+                        return <PostCard post={post} />;
+                    })
+                }
+
+                <!-- More posts... -->
+            </div>
+        </div>
+    </div>
+</Layout>
