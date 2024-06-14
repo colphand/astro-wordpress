@@ -1,9 +1,11 @@
 ---
+// Colin: Added ? in front of "node".
 export const prerender = true;
 import MainLayout from "../layouts/MainLayout.astro";
 import Archive from "../components/templates/Archive.astro";
 import Single from "../components/templates/Single.astro";
 import { getNodeByURI, getAllUris } from "lib/api2";
+import Layout from "~/layouts/Layout.astro";
 const uri = `/${Astro.params.uri}/`;
 const data = await getNodeByURI(uri);
 const node = data.nodeByUri;
@@ -14,7 +16,7 @@ export async function getStaticPaths() {
 
 function resolveContentTemplate(node) {
     let template;
-    switch (node.__typename) {
+    switch (node?.__typename) {
         case "Post":
             template = Single;
             break;
@@ -37,6 +39,6 @@ function resolveContentTemplate(node) {
 const Template = resolveContentTemplate(node);
 ---
 
-<MainLayout title={node.title || node.name} description={node.excerpt}>
+<Layout title={node?.title || node?.name} description?={node?.excerpt}>
     <Template node={node} />
-</MainLayout>
+</Layout>

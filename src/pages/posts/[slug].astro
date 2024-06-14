@@ -1,11 +1,12 @@
 ---
-import { getPosts } from '../../../lib/api';
+import { getPosts } from "../../../lib/api";
 const { slug } = Astro.params;
-import Layout from '~/layouts/Layout.astro';
+import Layout from "~/layouts/Layout.astro";
 
-let res = await fetch(`https://www.contactmonkey.com/wp-json/wp/v2/posts/?slug=${slug}&_embed`);
+let res = await fetch(
+    `https://www.contactmonkey.com/wp-json/wp/v2/posts/?slug=${slug}&_embed`
+);
 let [post] = await res.json();
-
 
 export async function getStaticPaths() {
     let posts = await getPosts();
@@ -35,17 +36,22 @@ const { title, author, excerpt, content, image, meta } = Astro.props;
     <div class="bg-white px-6 py-32 lg:px-8">
         <figure class="bg-white flex justify-center rounded-sm">
             <!-- <img src={image} alt={title} /> -->
-            <img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.large.source_url} />
+            <img
+                src={post._embedded["wp:featuredmedia"]["0"].media_details.sizes
+                    .large.source_url}
+            />
         </figure>
         <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-          <!-- <p class="text-base font-semibold leading-7 text-cmky-600">Introducing</p> -->
-          <h1 class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">{title}</h1>
-          <p class="mt-6 text-xl leading-8">{excerpt}</p>
-          <div class="mt-10 max-w-2xl">
-            <article class="text-elipsis overflow-hidden lg:p-3 prose">
-                <Fragment set:html={content} />
-            </article>
-          </div>
+            <!-- <p class="text-base font-semibold leading-7 text-cmky-600">Introducing</p> -->
+            <h1 class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">
+                {title}
+            </h1>
+            <p class="mt-6 text-xl leading-8">{excerpt}</p>
+            <div class="mt-10 max-w-2xl">
+                <article class="text-ellipsis overflow-hidden lg:p-3 prose">
+                    <Fragment set:html={content} />
+                </article>
+            </div>
         </div>
-      </div>
+    </div>
 </Layout>
