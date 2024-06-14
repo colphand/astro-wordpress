@@ -1,35 +1,52 @@
 ---
-import Layout from "~/layouts/Layout.astro";
+import Card from "../Card.astro";
+import PageHeader from "../PageHeader.astro";
 import PostCard from "../PostCard.astro";
 
 const { node } = Astro.props;
 ---
 
-<Layout title="ContactMonkey">
-    <div class="bg-white py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
-                    {node.name} - Archive
-                </h2>
-                <p class="mt-2 text-lg leading-8 text-gray-600">
-                    Business leaders worldwide use ContactMonkey each day to
-                    streamline their internal communications and measure
-                    employee engagement. Here’s how they’ve transformed their
-                    workforce.
+<PageHeader>
+    <!-- Display categories links if node has terms -->
+    <Fragment slot="eyebrow"
+        >{
+            node.categories
+                ? node.categories.nodes.map((category) => (
+                      <a class="term-link" href={category.uri}>
+                          {category.name}
+                      </a>
+                  ))
+                : null
+        }</Fragment
+    >
+    <Fragment slot="title">{node.name}</Fragment>
+    <!-- Only show date if node is a Post -->
+    <Fragment slot="subtitle"
+        >{
+            node.__typename === "Post" ? (
+                <p class="post-details">
+                    Posted on{" "}
+                    <time datetime={node.date}>
+                        {new Date(node.date).toLocaleDateString()}
+                    </time>
                 </p>
-            </div>
-            <div
-                class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-            >
-                {
-                    node.posts.nodes.map((post) => {
-                        return <PostCard post={post} />;
-                    })
-                }
+            ) : null
+        }</Fragment
+    >
+</PageHeader>
 
-                <!-- More posts... -->
-            </div>
+<div class="bg-white py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div
+            class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+        >
+            {
+                node.posts.nodes.map((post) => {
+                    return <Card post={post} />;
+                })
+            }
+
+            <!-- More posts... -->
         </div>
     </div>
-</Layout>
+</div>
