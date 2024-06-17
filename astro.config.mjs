@@ -1,10 +1,11 @@
+// https://astro.build/config
 import { defineConfig } from 'astro/config';
-// https://astro.build/config
 import tailwind from '@astrojs/tailwind';
+import netlify from "@astrojs/netlify";
 
-// https://astro.build/config
 export default defineConfig({
-    integrations: [tailwind()],
-    output: 'server',
-    prefetch: true
+  integrations: [tailwind()],
+  output: 'server',
+  prefetch: true,
+  adapter: netlify()
 });
