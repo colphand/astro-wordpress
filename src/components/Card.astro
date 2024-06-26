@@ -4,21 +4,6 @@ const { post } = Astro.props;
 
 <article class="flex flex-col items-start">
   <div class="relative w-full">
-    <!-- Bring this code back if we need to make image display dynamic. -->
-    <!-- {
-      post._embedded ? (
-        <>
-          <img
-            src={post?.featuredImage?.node?.mediaItemUrl}
-            alt={post?.featuredImage?.node?.altText}
-            srcset={post?.featuredImage?.node?.srcSet}
-            loading="lazy"
-            width={post?.featuredImage?.node?.mediaDetails?.width}
-            height={post?.featuredImage?.node?.mediaDetails?.height}
-          />
-        </>
-      ) : null
-    } -->
     <img
       src={post?.featuredImage?.node?.mediaItemUrl}
       alt={post?.featuredImage?.node?.altText}
@@ -28,7 +13,7 @@ const { post } = Astro.props;
       height={post?.featuredImage?.node?.mediaDetails?.height}
     />
     <div
-      class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"
+      class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10 bg-clip-content"
     >
     </div>
   </div>
