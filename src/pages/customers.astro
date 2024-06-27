@@ -1,0 +1,36 @@
+---
+import { customersQuery } from "lib/api2";
+import CustomerCard from "~/components/CustomerCard.astro";
+import PageHeader from "~/components/PageHeader.astro";
+import Layout from "~/layouts/Layout.astro";
+
+const data = await customersQuery();
+const customers = data.customers.nodes;
+---
+
+<Layout title="ContactMonkey">
+  <PageHeader>
+    <Fragment slot="eyebrow">Meet our heroes</Fragment>
+    <Fragment slot="title">The ContactMonkey Customers</Fragment>
+    <Fragment slot="subtitle"
+      >Business leaders worldwide use ContactMonkey each day to streamline their
+      internal communications and measure employee engagement. Here’s how
+      they’ve transformed their workforce.</Fragment
+    >
+  </PageHeader>
+  <div class="bg-white pb-24 sm:pb-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div
+        class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+      >
+        {
+          customers.map((customer) => (
+            <>
+              <CustomerCard {customer} />
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -13,7 +13,7 @@ const { post } = Astro.props;
       height={post?.featuredImage?.node?.mediaDetails?.height}
     />
     <div
-      class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10 bg-clip-content"
+      class="absolute inset-0 rounded-md ring-1 ring-inset ring-gray-900/10 clip"
     >
     </div>
   </div>
@@ -24,11 +24,18 @@ const { post } = Astro.props;
           >{new Date(post.date).toLocaleDateString()}</time
         >
       </span>
-      <a
-        href="#"
-        set:html="post.categories"
-        class="no-underline relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-      />
+      {
+        post.categories.nodes.map((category) => {
+          return (
+            <a
+              class="no-underline relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+              href={category.uri}
+            >
+              {category.name}
+            </a>
+          );
+        })
+      }
     </div>
     <div class="group relative">
       <h3
@@ -43,28 +50,16 @@ const { post } = Astro.props;
           <>
             <div class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
               <p set:html={post.excerpt} />
-              {post.categories.nodes.map((category) => {
-                return (
-                  <a class="term-link" href={category.uri}>
-                    {category.name}
-                  </a>
-                );
-              })}
             </div>
           </>
-        ) : (
-          <p>No excerpt</p>
-        )
+        ) : null
       }
     </div>
     <div class="relative mt-8 flex items-center gap-x-4">
       <div class="text-sm leading-6">
         <p class="font-semibold text-gray-900">
-          <a href="#">
-            <!-- <span
-              class="absolute inset-0"
-              set:html="post.yoast_head_json.author"
-            /> -->
+          <a href={post.author.node.uri}>
+            {post.author.node.name}
           </a>
         </p>
       </div>

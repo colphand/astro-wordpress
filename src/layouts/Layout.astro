@@ -1,8 +1,6 @@
 ---
 import "~/assets/base.css";
 import Footer from "~/components/Footer.astro";
-import Navbar from "~/components/Navbar.astro";
-import PostCard from "~/components/PostCard.astro";
 import { navQuery } from "lib/api2";
 const { menus, generalSettings } = await navQuery();
 import SiteNav from "~/components/SiteNav.astro";
