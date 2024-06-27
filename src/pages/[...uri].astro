@@ -1,6 +1,7 @@
 ---
 // Colin: Added ? in front of "node".
 export const prerender = true;
+import Customer from "~/components/templates/Customer.astro";
 import Archive from "../components/templates/Archive.astro";
 import Single from "../components/templates/Single.astro";
 import { getNodeByURI, getAllUris } from "lib/api2";
@@ -30,7 +31,7 @@ function resolveContentTemplate(node) {
             break;
         // Adding custom post types here
         case "Customer":
-            template = Single;
+            template = Customer;
             break;
         case "Resource":
             template = Single;

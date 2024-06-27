@@ -1,0 +1,45 @@
+---
+import PageHeader from "../PageHeader.astro";
+
+const { node } = Astro.props;
+const { customer } = Astro.props;
+---
+
+<PageHeader>
+    <Fragment slot="eyebrow">Customer Story</Fragment>
+    <Fragment slot="title">{node.title}</Fragment>
+    <Fragment slot="subtitle">{node.customersFields.subHeading}</Fragment>
+</PageHeader>
+
+<div
+    class="bg-white px-6 py-32 lg:px-8 mx-auto max-w-3xl text-base leading-7 text-gray-700"
+>
+    <div class="mt-10 max-w-2xl">
+        <div class="flex justify-center">
+            <img
+                class="invert h-8 my-4"
+                src={node.customersFields.customerLogo.node.link}
+                alt=""
+            />
+        </div>
+        <article
+            class="text-ellipsis overflow-hidden lg:p-3 prose prose-stone prose-h2:text-3xl prose-h2:tracking-wide"
+            set:html={node.customersFields.customerStoryDetails}
+        />
+        <!-- <p>Test - {node.customersFields.customerIndustry}</p> -->
+
+        <!-- <img
+            class="featured-image"
+            src={node.featuredImage?.node?.mediaItemUrl}
+            srcset={node.featuredImage?.node?.srcSet}
+            alt={node.featuredImage?.node?.altText}
+            loading="lazy"
+            width={node.featuredImage?.node?.mediaDetails?.width}
+            height={node.featuredImage?.node?.mediaDetails?.height}
+        /> -->
+        <!-- <article
+            class="text-ellipsis overflow-hidden lg:p-3 prose prose-stone prose-h2:text-3xl prose-h2:tracking-wide"
+            set:html={node.content}
+        /> -->
+    </div>
+</div>
