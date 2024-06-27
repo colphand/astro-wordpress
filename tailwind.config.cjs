@@ -31,28 +31,13 @@ module.exports = {
         require('@tailwindcss/typography'),
     ],
     daisyui: {
-        themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
-        darkTheme: "dark", // name of one of the included themes for dark mode
-        base: true, // applies background color and foreground color for root element by default
-        styled: true, // include daisyUI colors and design decisions for all components
-        utils: true, // adds responsive and modifier utility classes
-        prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-        logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-        themeRoot: ":root", // The element that receives theme color CSS variables
-        // themes: [
-        //     {
-        //         mytheme: {
-        //             primary: '#d94948',
-        //             secondary: '#4959ed',
-        //             accent: '#38077c',
-        //             neutral: '#1F2228',
-        //             'base-100': '#1f2937',
-        //             info: '#5eead4',
-        //             success: '#126E52',
-        //             warning: '#C49B08',
-        //             error: '#FA1E29',
-        //         },
-        //     },
-        // ],
-    },
+    themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+    darkTheme: "light", // name of one of the included themes for dark mode
+    base: true, // applies background color and foreground color for root element by default
+    styled: true, // include daisyUI colors and design decisions for all components
+    utils: true, // adds responsive and modifier utility classes
+    prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
+    themeRoot: ":root", // The element that receives theme color CSS variables
+  },
 };
